@@ -3,7 +3,7 @@ import { createChatBotMessage } from 'react-chatbot-kit';
 const botName = 'RAG Assistant';
 
 const config = {
-  initialMessages: [createChatBotMessage('Hello! Ask me anything about the data.')],
+  initialMessages: [createChatBotMessage('Hello! Ask me anything about the Student Data.')],
   botName: botName,
   customStyles: {
     botMessageBox: {
