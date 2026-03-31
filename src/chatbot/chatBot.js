@@ -7,12 +7,14 @@ import './chatBot.css';
 
 const ChatBot = () => {
   return (
-    <div>
-      <Chatbot
-        config={config}
-        actionProvider={ActionProvider}
-        messageParser={MessageParser}
-      />
+    <div className="chatbot-wrapper">
+      <div className="chatbot-card">
+        <Chatbot
+          config={config}
+          actionProvider={ActionProvider}
+          messageParser={MessageParser}
+        />
+      </div>
     </div>
   );
 };

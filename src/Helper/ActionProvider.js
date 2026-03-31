@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
+const TypingIndicator = () => (
+  <div className="typing-indicator">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+);
+
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   const [toast, setToast] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (toast) {
@@ -11,6 +20,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   }, [toast]);
 
   const handleMessage = async (userMessage) => {
+    setIsLoading(true);
     try {
       let result = await fetch('http://localhost:4001/rag/ask', {
         method: 'POST',
@@ -38,6 +48,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         ...prev,
         messages: [...prev.messages, botMessage],
       }));
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -56,6 +68,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           },
         });
       })}
+      {isLoading && <TypingIndicator />}
     </div>
   );
 };

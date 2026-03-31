@@ -3,14 +3,18 @@ import { createChatBotMessage } from 'react-chatbot-kit';
 const botName = 'RAG Assistant';
 
 const config = {
-  initialMessages: [createChatBotMessage('Hello! Ask me anything about the Student Data.')],
+  initialMessages: [
+    createChatBotMessage(
+      "Hello! \uD83D\uDC4B I'm your RAG Assistant. Ask me anything about the Student Data."
+    ),
+  ],
   botName: botName,
   customStyles: {
     botMessageBox: {
-      backgroundColor: '#376B7E',
+      backgroundColor: '#fff',
     },
     chatButton: {
-      backgroundColor: '#5ccc9d',
+      backgroundColor: '#376b7e',
     },
   },
 };
